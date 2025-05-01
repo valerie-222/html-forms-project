@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback Form - LakbayTinig</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="tourism-feedback-system">
+    <section class="feedback-form-section" id="feedback-form">
+      
+
+      <div class="form-box">
+        <form id="rating-form" onsubmit="submitRating(event)">
+          <fieldset>
+            <legend>Overall Experience</legend>
+            <label for="overall">How would you rate your overall experience?</label>
+            <div class="rating-group">
+              <label><input type="radio" name="overall" value="1" required />★</label>
+              <label><input type="radio" name="overall" value="2" />★</label>
+              <label><input type="radio" name="overall" value="3" />★</label>
+              <label><input type="radio" name="overall" value="4" />★</label>
+              <label><input type="radio" name="overall" value="5" />★</label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Feedback and Suggestions</legend>
+            <label for="activities">What were your favorite activities or spots?</label>
+            <textarea id="activities" name="activities" rows="3"></textarea>
+
+            <label for="improve">What can we improve in this tourist destination?</label>
+            <textarea id="improve" name="improve" rows="3"></textarea>
+          </fieldset>
+
+          <button type="submit" class="btn">Submit Feedback</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function submitRating(event) {
+      event.preventDefault(); 
+      const form = document.getElementById("rating-form");
+      
+      
+      if (form.checkValidity()) {
+        window.location.href = "thankyoupage.html";
+      } else {
+        form.reportValidity();
+      }
+    }
+  </script>
+  
+</body>
+</html>
