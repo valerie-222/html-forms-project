@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team 16 - Explore Forms</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body background color */
+    body {
+      background-color: #f5f5dc !important; /* Beige background */
+      font-family: "Poppins", sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header Styling */
+    .header {
+      text-align: center;
+      padding: 3rem 1rem;
+      background-color: #ff702a; /* New header background color */
+      color: #fff;
+      border-bottom: 3px solid #fff;
+    }
+
+    .header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Cards container */
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Card Styling */
+    .card {
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end; /* Align content to the bottom */
+    }
+
+    /* Card Hover Effect */
+    .card:hover {
+      background-color: #fff3cd;
+      transform: translateY(-5px);
+    }
+
+    .card span {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .card h4 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #fff; /* Ensure text stands out */
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #fff; /* Ensure text stands out */
+    }
+
+    /* Card Background Image Text Styling */
+    .card h4, .card p {
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Add text shadow to improve visibility */
+    }
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Explore Forms and Surveys</h1>
+    <p>Choose one of the surveys below to contribute to our community.</p>
+  </header>
+
+  <section class="cards-container">
+    <a href="disaster-preparedness.html" class="card" style="background-image: url('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/disaster.jpg');">
+      <span>⚠️</span>
+      <h4>Disaster Preparedness Form</h4>
+      <p>Help us understand your readiness for emergencies.</p>
+    </a>
+
+    <a href="School-Classroom-Feedback.html" class="card" style="background-image: url('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/classroom.jpg');">
+      <span>📝</span>
+      <h4>Classroom Survey Feedback</h4>
+      <p>Share your feedback on learning experiences.</p>
+    </a>
+
+    <a href="local-tourism.html" class="card" style="background-image: url('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/tourism.jpg');">
+      <span>🌍</span>
+      <h4>Local Tourism Survey</h4>
+      <p>Contribute to improving our community's tourism.</p>
+    </a>
+  </section>
+</body>
+</html>
