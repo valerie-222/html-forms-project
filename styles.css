@@ -1,0 +1,244 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #000;
+  background-color: #213602;
+  background-image: url(images/green.png);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header-section {
+  text-align: center;
+  padding: 2rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 3rem;
+  color:white;
+}
+
+.header-section h1 {
+  font-size: 2.5rem;
+  color:white;
+  margin-bottom: 0.5rem;
+}
+
+.header-section p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.header-section img {
+  margin-top: 1rem;
+  width: 150px;
+  height: auto;
+}
+
+.form-box {
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 700px;
+  font-family: 'Times New Roman', Times, serif;
+  
+ }
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-style: italic;
+  font-size: smaller;
+}
+
+.btn {
+  background-color: #00796b;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.btn:hover {
+  background-color: #004d40;
+  
+}
+
+.theme-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.theme-toggle {
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background-color: #004d40;
+}
+
+.feedback-form {
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.visitor-info h2,
+.experience-feedback header h2 {
+  color: #006064;
+}
+
+.visitor-info form label,
+.experience-feedback form label {
+  font-weight: 600;
+  margin-top: 1rem;
+  display: block;
+  
+}
+
+fieldset {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 10px;
+  color: #00796b;
+}
+
+.rating-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  justify-content: center;
+  flex-direction: fixed;
+}
+
+.rating-group input[type="radio"] {
+  display: none; 
+}
+
+.rating-group label {
+  font-size: 3rem; 
+  color: black; 
+  cursor: pointer; 
+  transition: color 0.3s ease; 
+}
+
+.rating-group label:hover,
+.rating-group label:hover ~ label {
+  color: #ffcc00; 
+}
+
+.rating-group input[type="radio"]:checked + label,
+.rating-group input[type="radio"]:checked + label ~ label {
+  color: #ffcc00;
+}
+
+.experience-feedback button[type="submit"] {
+  background-color: #00796b;
+  color: #fff;
+  padding: 0.9rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.experience-feedback button[type="submit"]:hover {
+  background-color: #004d40;
+}
+
+.tourism-feedback-system {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.feedback-form-section {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+#feedback-form {
+  padding: 2rem 0;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.footer-section {
+  text-align: center;
+  border-top: 1px solid #ddd;
+  padding: 2rem 1rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 1.5rem;
+  padding: 0;
+}
+
+.footer-nav a {
+  color: #004d40;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+}
+
+.footer-tagline {
+  font-style: italic;
+  color: #777;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .rating-group {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-section h1 {
+    font-size: 1.6rem;
+  }
+
+  .header-section p {
+    font-size: 1rem;
+  }
+}

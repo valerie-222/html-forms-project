@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback Form - LakbayTinig</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .tourism-feedback-system {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-box {
+      padding: 20px;
+    }
+
+    .rating-group {
+      display: flex;
+      justify-content: space-between;
+      width: 200px;
+      margin-bottom: 15px;
+    }
+
+    .rating-group label {
+      font-size: 40px;
+      color: #ccc;
+      cursor: pointer;
+    }
+
+    .rating-group input {
+      display: none;
+    }
+
+    .rating-group input:checked ~ label,
+    .rating-group label:hover,
+    .rating-group label:hover ~ label {
+      color: #ff9900;
+    }
+
+    .rating-group input:checked {
+      color: #ff9900;
+    }
+
+    .btn {
+      background-color: #00796b;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+      font-size: 1rem;
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .btn:hover {
+      background-color: #004d40;
+    }
+  </style>
+</head>
+<body>
+  <main class="tourism-feedback-system">
+    <section class="feedback-form-section" id="feedback-form">
+      <div class="form-box">
+        <form id="rating-form" onsubmit="submitRating(event)">
+          <fieldset>
+            <legend>Overall Experience</legend>
+            <label for="overall">How would you rate your overall experience?</label>
+            <div class="rating-group">
+              <input type="radio" name="overall" value="1" id="star1" required />
+              <label for="star1">★</label>
+
+              <input type="radio" name="overall" value="2" id="star2" />
+              <label for="star2">★</label>
+
+              <input type="radio" name="overall" value="3" id="star3" />
+              <label for="star3">★</label>
+
+              <input type="radio" name="overall" value="4" id="star4" />
+              <label for="star4">★</label>
+
+              <input type="radio" name="overall" value="5" id="star5" />
+              <label for="star5">★</label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Feedback and Suggestions</legend>
+            <label for="activities">What were your favorite activities or spots?</label>
+            <textarea id="activities" name="activities" rows="3"></textarea>
+
+            <label for="improve">What can we improve in this tourist destination?</label>
+            <textarea id="improve" name="improve" rows="3"></textarea>
+          </fieldset>
+
+          <button type="submit" class="btn">Submit Feedback</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function submitRating(event) {
+      event.preventDefault(); 
+      const form = document.getElementById("rating-form");
+
+      if (form.checkValidity()) {
+        window.location.href = "thankyoupage.html"; 
+        form.reportValidity(); 
+      }
+    }
+  </script>
+</body>
+</html>

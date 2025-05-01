@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Visit Date</title>
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .visit-date-section {
+      border: 1px solid #ddd;
+      padding: 1.5rem;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin: 1.5rem auto;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    .visit-date-section header h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #00796b;
+    }
+
+    .visit-date-section header p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input[type="date"] {
+      width: 100%;
+      padding: 0.6rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .btn {
+      background-color: #00796b;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1rem;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background-color: #004d40;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <article class="visit-date-section">
+      <header>
+        <h3>Visit Date</h3>
+        <p>Record your journey by selecting the date you visited the destination. This information helps us improve future experiences!</p>
+      </header>
+      <section id="date-picker">
+        <label for="visit-date">Date of Visit:</label>
+        <input type="date" id="visit-date" name="visit-date" required>
+      </section>
+    </article>
+
+    <button type="button" class="btn" onclick="redirectTonext()">Next</button>
+
+    <script>
+      function redirectTonext() {
+        const visitDate = document.getElementById('visit-date').value;
+
+        if (visitDate) {
+          window.location.href = "amenities.html";  // Proceed to the next page
+        } else {
+          alert('Please select a date before proceeding.');  // Show alert if no date is selected
+        }
+      }
+    </script>
+  </main>
+</body>
+</html>
