@@ -1,151 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to LakbayTinig</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team 16 - Explore Forms</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
-      text-align: left;
       padding: 0;
-      background-image: url(images/8.png);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
+      box-sizing: border-box;
+    }
+
+    /* Body background color */
+    body {
+      background-color: #f5f5dc;
+      font-family: "Poppins", sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+
+
+    .header {
+      text-align: center;
+      padding: 3rem 1rem;
+      background-color: #AC9362; 
       color: #fff;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      border-bottom: 3px solid #fff;
+    }
+
+    .header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+
+    .card {
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      min-height: 250px;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      justify-content: flex-end; 
     }
 
-    body.dark-mode {
-      color: #fff;
-      background-color: #000;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/1.jpg');
-      background-size: cover;
-      background-position: center;
+
+    .card:hover {
+      background-color: #fff3cd;
+      transform: translateY(-5px);
     }
 
-    body.day-mode {
-      color: #000;
-      background-color: #dbeafe;
-      background-image: url('images/5.jpg');
-      background-size: cover;
-      background-position: center;
+    .card span {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 1rem;
     }
 
-    .theme-buttons {
-      position: fixed;
-      top: 2.5rem;
-      right: 1rem;
-      z-index: 1000;
+    .card h4 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #fff; 
     }
 
-    .theme-toggle {
-      padding: 0.5rem 1rem;
-      margin-left: 0.5rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      background-color: #004d40;
-      color: #000;
+    .card p {
+      font-size: 1rem;
+      color: #fff; 
     }
-
-    body.dark-mode .theme-toggle {
-      background-color: #333;
-      color: gray;
-    }
-
-    body.day-mode .theme-toggle {
-      background-color: #cbd5e1;
-      color: #000;
-    }
-
-    header, main {
-      text-align: justify;
-      padding: 2rem;
-      max-width: 700px;
-      margin: 0 auto;
-      margin-top: 60px;
-    }
-
-    header {
-      padding-top: 4rem;
-    }
-
-    main {
-      flex: 1;
-    }
-
-    a.btn{
-      background-color: #004d40;
-      color: black;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 300rem; 
-      color: #fff;
-    }
-
     
+    .card h4, .card p {
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); 
+    }
+
   </style>
 </head>
 <body>
-  <div class="theme-buttons">
-    <button class="theme-toggle" id="day-mode-btn" aria-label="Activate Day Mode">Day</button>
-    <button class="theme-toggle" id="night-mode-btn" aria-label="Activate Dark Mode">Dark</button>
-  </div>
-
-  <header>
-    <h1>Welcome to <span>LakbayTinig</span></h1>
-    <p>Your voice matters in shaping a better tourism experience.</p>
+  <header class="header">
+    <h1>Explore Forms and Surveys</h1>
+    <p>Choose one of the surveys below to contribute to our community.</p>
   </header>
 
-  <main>
-    <p>
-      Our platform is dedicated to enhancing the tourism experience by gathering valuable feedback from travelers like you.
-       We believe that your voice plays a key role in shaping better destinations, services, and overall travel experiences. 
-       By sharing your thoughts, ratings, and suggestions, you help improve the tourism industry for future visitors. 
-       LakbayTinig makes it easy for you to express your opinions, ensuring that tourism providers are always aware of what matters most. 
-       Join us in creating a more enjoyable and personalized travel experience for everyone!
-    </p>
-    <a href="TSFF.html" class="btn">Click me!</a>
-  </main>
+  <section class="cards-container">
+    <a href="disaster-preparedness.html" class="card" style="background-image: url('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/disaster.jpg');">
+      <span>⚠️</span>
+      <h4>Disaster Preparedness Form</h4>
+      <p>Help us understand your readiness for emergencies.</p>
+    </a>
 
- 
+    <a href="School-Classroom-Feedback.html" class="card" style="background-image: url('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/classroom.jpg');">
+      <span>📝</span>
+      <h4>Classroom Survey Feedback</h4>
+      <p>Share your feedback on learning experiences.</p>
+    </a>
 
-  <script>
-    const body = document.body;
-    const dayBtn = document.getElementById("day-mode-btn");
-    const nightBtn = document.getElementById("night-mode-btn");
-
-    const preloadImage = (src) => {
-      const img = new Image();
-      img.src = src;
-    };
-
-    preloadImage('image/1.jpg'); 
-    preloadImage('image/5.png'); 
-
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      body.classList.add("dark-mode");
-    } else if (savedTheme === "day") {
-      body.classList.add("day-mode");
-    }
-
-    const applyTheme = (theme) => {
-      body.classList.remove("day-mode", "dark-mode");
-      body.classList.add(theme);
-      localStorage.setItem("theme", theme);
-    };
-
-    dayBtn.addEventListener("click", () => applyTheme("day-mode"));
-    nightBtn.addEventListener("click", () => applyTheme("dark-mode"));
-  </script>
+    <a href="local-tourism.html" class="card" style="background-image: url('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/tourism.jpg');">
+      <span>🌍</span>
+      <h4>Local Tourism Survey</h4>
+      <p>Contribute to improving our community's tourism.</p>
+    </a>
+  </section>
 </body>
 </html>
