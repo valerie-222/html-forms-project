@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>School Feedback Survey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form {
+            background-color: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            max-width: 600px;
+            width: 100%;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        form h2 {
+            color: #003366;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 18px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: #333;
+            font-size: 12px;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+             width: calc(100% - 16px); /* Added this */
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f8f8f8;
+            transition: border-color 0.3s ease;
+            font-size: 12px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #0077cc;
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .stars {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            margin-bottom: 1px;
+            width: 100%;
+        }
+
+        .stars input {
+            display: none;
+        }
+
+        .stars label {
+            font-size: 50px;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .stars input:checked ~ label,
+        .stars label:hover,
+        .stars label:hover ~ label {
+            color: #ffd700;
+        }
+
+        .rating-labels {
+            display: flex;
+            justify-content: center;
+            font-size: 10px;
+            gap: 16px;
+            color: #C0C0C0;
+            padding: 0 5px;
+            margin-left: 213px;
+            margin-bottom: 10px;
+            width: 30%;
+        }
+        .rating-labels span{
+           width: 50%;
+           text-align: center;
+           line-height: 1;
+        }
+
+        button {
+            background-color: #0077cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            margin: 0 auto;
+            display: block;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        button:hover {
+            background-color: #005599;
+        }
+
+        #feedback-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 5px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            font-size: 12px;
+        }
+
+        th {
+            background-color: #0077cc;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        #feedback-table td {
+            text-align: center;
+        }
+
+        #feedback-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .no-data {
+            text-align: center;
+            color: #777;
+            margin-top: 20px;
+            font-style: italic;
+            font-size: 12px;
+        }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            border-top: 1px solid #004080;
+        }
+
+        #anonymous {
+            width: 10px;
+            height: 10px;
+            margin-right: 3px;
+            vertical-align: middle;
+        }
+
+        .anonymous-label {
+            font-size: 10px;
+            color: #555;
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        .anonymous-label input{
+           margin-bottom: 0;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            width: 95%;
+            max-width: 1000px;
+            position: relative;
+            transition: transform 0.3s ease-in-out, max-height 0.3s ease-in-out;
+            overflow: hidden;
+            max-height: 80vh;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            color: #003366;
+            font-size: 20px;
+            white-space: nowrap;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 40px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .minimize-button:hover,
+        .minimize-button:focus {
+            color: #000;
+            text-decoration: none;
+        }
+
+        #feedback-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 5px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        #feedback-table th,
+        #feedback-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            font-size: 12px;
+        }
+
+        th {
+            background-color: #0077cc;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        #feedback-table td {
+            text-align: center;
+        }
+
+        #feedback-table tr:hover {
+            background-color: #f5f5f5;
+        }
+       .modal-header .title-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .filters {
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+            flex-wrap: nowrap;
+            margin-bottom: 1px;
+            width: 70%;
+            margin-top: 15px;
+            margin-left: 430px;
+        }
+
+        .filters select {
+            padding: 8px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            background-color: #f8f8f8;
+            font-size: 10px;
+            transition: border-color 0.3s ease;
+            flex: 1;
+            min-width: 120px;
+            max-width: 100px;
+            box-sizing: border-box;
+        }
+
+        .filters select:focus {
+            border-color: #0077cc;
+            outline: none;
+        }
+        form {
+            background-color: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            max-width: 600px;
+            width: 100%;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: calc(100% - 16px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f8f8f8;
+            transition: border-color 0.3s ease;
+            font-size: 12px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #0077cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            margin: 0 auto;
+            display: block;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        button:hover {
+            background-color: #005599;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Classroom Feedback Survey</h1>
+    </header>
+
+    <main>
+        <form id="survey-form">
+            <h2>Give us your Feedback</h2>
+            <label for="student-name">Student Name:</label>
+            <input type="text" id="student-name" placeholder="Enter your name">
+            <label class="anonymous-label">
+                <input type="checkbox" id="anonymous"> Submit as Anonymous
+            </label>
+
+            <label for="grade-section">Grade & Section:</label>
+            <select id="grade-section">
+                <option value="">Select Grade & Section</option>
+                <option value="Grade 7 - A">Grade 7 - A</option>
+                <option value="Grade 7 - B">Grade 7 - B</option>
+                <option value="Grade 8 - A">Grade 8 - A</option>
+                <option value="Grade 8 - B">Grade 8 - B</option>
+            </select>
+
+            <label for="subject">Subject:</label>
+            <select id="subject">
+                <option value="">Select Subject</option>
+                <option value="Math">Math</option>
+                <option value="Science">Science</option>
+                <option value="English">English</option>
+                <option value="History">History</option>
+            </select>
+
+            <label>Rating:</label>
+            <div class="stars">
+                <input type="radio" name="rating" id="star5" value="5"><label for="star5">★</label>
+                <input type="radio" name="rating" id="star4" value="4"><label for="star4">★</label>
+                <input type="radio" name="rating" id="star3" value="3"><label for="star3">★</label>
+                <input type="radio" name="rating" id="star2" value="2"><label for="star2">★</label>
+                <input type="radio" name="rating" id="star1" value="1"><label for="star1">★</label>
+            </div>
+            <div class="rating-labels">
+                <span>Poor</span>
+                <span>Fair</span>
+                <span>Good</span>
+                <span>Great</span>
+                <span>Awesome</span>
+            </div>
+
+            <label for="favorite-lesson">Favorite Lesson:</label>
+            <input type="text" id="favorite-lesson" placeholder="Enter your favorite lesson">
+
+            <label for="comments">Comments:</label>
+            <textarea id="suggestions" rows="4" placeholder="Enter your comments"></textarea>
+
+            <button type="submit">Done</button>
+        </form>
+
+
+        <div id="feedback-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="title-container">
+                        <h2>Feedback Details</h2>
+                         <div class="filters">
+                            <select id="filter-grade-modal">
+                                <option value="">All Grades</option>
+                            </select>
+                            <select id="filter-subject-modal">
+                                <option value="">All Subjects</option>
+                            </select>
+                            <select id="filter-rating-modal">
+                                <option value="">All Ratings</option>
+                            </select>
+                        </div>
+                    </div>
+                    <span class="close-button">&times;</span>
+                </div>
+                <table id="feedback-table">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Name</th>
+                            <th style="text-align: center;">Grade & Section</th>
+                            <th style="text-align: center;">Subject</th>
+                            <th style="text-align: center;">Rating</th>
+                            <th style="text-align: center;">Favorite Lesson</th>
+                            <th style="text-align: center;">Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body"></tbody>
+                </table>
+                <div id="no-data" class="no-data">No feedback yet!</div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const feedbackList = [];
+
+        const form = document.getElementById('survey-form');
+        const modal = document.getElementById('feedback-modal');
+        const modalClose = document.querySelector('.close-button');
+        const modalMinimize = document.querySelector('.minimize-button');
+        const tableBody = document.getElementById('table-body');
+        const noData = document.getElementById('no-data');
+        const table = document.getElementById('feedback-table');
+
+        const filterGrade = document.getElementById('filter-grade-modal');
+        const filterSubject = document.getElementById('filter-subject-modal');
+        const filterRating = document.getElementById('filter-rating-modal');
+
+
+        function openModal() {
+            modal.style.display = "block";
+            renderTable();
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        modalClose.onclick = closeModal;
+
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        const renderTable = () => {
+            tableBody.innerHTML = '';
+
+            const filtered = feedbackList.filter(fb => {
+                return (filterGrade.value === '' || fb.gradeSection === filterGrade.value) &&
+                    (filterSubject.value === '' || fb.subject === filterSubject.value) &&
+                    (filterRating.value === '' || fb.rating === filterRating.value);
+            });
+
+            if (filtered.length === 0) {
+                noData.style.display = 'block';
+                table.style.display = 'none';
+            } else {
+                noData.style.display = 'none';
+                table.style.display = 'table';
+                filtered.forEach(fb => {
+                    const row = `
+                        <tr>
+                            <td style="text-align: center;">${fb.name}</td>
+                            <td style="text-align: center;">${fb.gradeSection}</td>
+                            <td style="text-align: center;">${fb.subject}</td>
+                            <td style="text-align: center;">${'★'.repeat(fb.rating)}</td>
+                            <td style="text-align: center;">${fb.favoriteLesson}</td>
+                            <td style="text-align: center;">${fb.suggestions}</td>
+                        </tr>
+                    `;
+                    tableBody.insertAdjacentHTML('beforeend', row);
+                });
+            }
+        };
+
+        const updateFilters = () => {
+            const grades = [...new Set(feedbackList.map(fb => fb.gradeSection))];
+            const subjects = [...new Set(feedbackList.map(fb => fb.subject))];
+            const ratings = [...new Set(feedbackList.map(fb => fb.rating))];
+
+            filterGrade.innerHTML = '<option value="">All Grades</option>' +
+                grades.map(g => `<option value="${g}">${g}</option>`).join('');
+
+            filterSubject.innerHTML = '<option value="">All Subjects</option>' +
+                subjects.map(s => `<option value="${s}">${s}</option>`).join('');
+
+            filterRating.innerHTML = '<option value="">All Ratings</option>' +
+                ratings.map(r => `<option value="${r}">${'★'.repeat(r)}</option>`).join('');
+        };
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const nameInput = document.getElementById('student-name').value.trim();
+            const isAnonymous = document.getElementById('anonymous').checked;
+            const name = isAnonymous ? 'Anonymous' : (nameInput || '-');
+
+            const gradeSection = document.getElementById('grade-section').value || '-';
+            const subject = document.getElementById('subject').value || '-';
+            const ratingInput = document.querySelector('input[name="rating"]:checked');
+            const rating = ratingInput ? ratingInput.value : '-';
+            const favoriteLesson = document.getElementById('favorite-lesson').value.trim() || '-';
+            const suggestions = document.getElementById('suggestions').value.trim() || '-';
+
+            feedbackList.push({ name, gradeSection, subject, rating, favoriteLesson, suggestions });
+
+            updateFilters();
+            openModal();
+            form.reset();
+        });
+
+        [filterGrade, filterSubject, filterRating].forEach(filter => {
+            filter.addEventListener('change', renderTable);
+        });
+
+        renderTable();
+    </script>
+</body>
+</html>
