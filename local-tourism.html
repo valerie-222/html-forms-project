@@ -10,7 +10,7 @@
       margin: 0;
       text-align: left;
       padding: 0;
-      background-image: url(images/8.png);
+      background-image: url('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/8.png');
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
@@ -24,7 +24,8 @@
     body.dark-mode {
       color: #fff;
       background-color: #000;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/1.jpg');
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/1.jpg');
       background-size: cover;
       background-position: center;
     }
@@ -32,7 +33,7 @@
     body.day-mode {
       color: #000;
       background-color: #dbeafe;
-      background-image: url('https://github.com/valerie-222/html-forms-project/blob/main/5.jpg');
+      background-image: url('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/5.jpg');
       background-size: cover;
       background-position: center;
     }
@@ -80,18 +81,15 @@
       flex: 1;
     }
 
-    a.btn{
+    a.btn {
       background-color: #004d40;
-      color: black;
+      color: #fff;
       padding: 0.75rem 1.5rem;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       margin-top: 300rem; 
-      color: #fff;
     }
-
-    
   </style>
 </head>
 <body>
@@ -108,15 +106,13 @@
   <main>
     <p>
       Our platform is dedicated to enhancing the tourism experience by gathering valuable feedback from travelers like you.
-       We believe that your voice plays a key role in shaping better destinations, services, and overall travel experiences. 
-       By sharing your thoughts, ratings, and suggestions, you help improve the tourism industry for future visitors. 
-       LakbayTinig makes it easy for you to express your opinions, ensuring that tourism providers are always aware of what matters most. 
-       Join us in creating a more enjoyable and personalized travel experience for everyone!
+      We believe that your voice plays a key role in shaping better destinations, services, and overall travel experiences.
+      By sharing your thoughts, ratings, and suggestions, you help improve the tourism industry for future visitors.
+      LakbayTinig makes it easy for you to express your opinions, ensuring that tourism providers are always aware of what matters most.
+      Join us in creating a more enjoyable and personalized travel experience for everyone!
     </p>
     <a href="TSFF.html" class="btn">Click me!</a>
   </main>
-
- 
 
   <script>
     const body = document.body;
@@ -128,8 +124,19 @@
       img.src = src;
     };
 
-    preloadImage('image/1.jpg'); 
-    preloadImage('image/5.png'); 
+    // Preload all images
+    preloadImage('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/1.jpg');
+    preloadImage('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/2.jpg');
+    preloadImage('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/3.jpg');
+    preloadImage('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/4.png');
+    preloadImage('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/5.jpg');
+    preloadImage('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/6.jpg');
+    preloadImage('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/7.jpg');
+    preloadImage('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/8.png');
+    preloadImage('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/blue.png');
+    preloadImage('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/green.png');
+    preloadImage('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/main.jpg');
+    preloadImage('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/plain.jpg');
 
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
