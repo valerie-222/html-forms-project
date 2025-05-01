@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Select Visit Date</title>
   <link rel="stylesheet" href="styles.css">
-
   
   <style>
     body {
@@ -93,15 +92,14 @@
 
     <button type="button" class="btn" onclick="redirectTonext()">Next</button>
 
-
-    
     <script>
       function redirectTonext() {
         const visitDate = document.getElementById('visit-date').value;
 
         if (visitDate) {
-          window.location.href = "amenities.html"; 
-          alert('Please select a date before proceeding.');
+          window.location.href = "amenities.html";  
+        } else {
+          alert('Please select a date before proceeding.'); 
         }
       }
     </script>
