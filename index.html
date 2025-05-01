@@ -9,9 +9,9 @@
     :root {
       --primary-color: #ff702a;
       --secondary-color: #ffc107;
-      --background-color: #8b0000;
+      --background-color: #f5f5dc; /* Beige background for the page */
       --white: #ffffff;
-      --text-color: #fff;
+      --text-color: #333;
       --card-bg: #ffdd57;
       --card-hover: #fff3cd;
       --transition: all 0.3s ease-in-out;
@@ -25,8 +25,7 @@
     }
 
     body {
-      background-color: var(--background-color);
-      background-image: url('8.png'); /* Update with your own image */
+      background-color: var(--background-color); /* Beige background */
       font-family: var(--font-header);
       color: var(--text-color);
     }
@@ -38,7 +37,7 @@
 
     .header h1 {
       font-size: 2rem;
-      color: var(--white);
+      color: var(--text-color);
     }
 
     .header p {
@@ -56,36 +55,37 @@
     }
 
     .card {
-      position: relative;
-      padding: 2rem;
-      border-radius: 12px;
+      background-color: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
       text-align: center;
-      color: white;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+      transition: var(--transition);
+      cursor: pointer;
       text-decoration: none;
-      overflow: hidden;
-      height: 250px;
+      color: inherit;
       background-size: cover;
       background-position: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-color: rgba(0, 0, 0, 0.5); /* Overlay to make text more readable */
-      z-index: 0;
-    }
-
-    .card h4,
-    .card p {
-      position: relative;
-      z-index: 1;
     }
 
     .card:hover {
+      background-color: var(--card-hover);
       transform: translateY(-5px);
+    }
+
+    .card span {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .card h4 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 1rem;
     }
   </style>
 </head>
@@ -96,15 +96,20 @@
   </header>
 
   <section class="cards-container">
-    <a href="disaster-preparedness.html" class="card" style="background-image: url('disaster.jpg');">
+    <a href="disaster-preparedness.html" class="card" style="background-image: url('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/disaster.jpg');">
+      <span>⚠️</span>
       <h4>Disaster Preparedness Form</h4>
       <p>Help us understand your readiness for emergencies.</p>
     </a>
-    <a href="School-Classroom-Feedback.html" class="card" style="background-image: url('classroom.jpg');">
+
+    <a href="School-Classroom-Feedback.html" class="card" style="background-image: url('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/classroom.jpg');">
+      <span>📝</span>
       <h4>Classroom Survey Feedback</h4>
       <p>Share your feedback on learning experiences.</p>
     </a>
-    <a href="local-tourism.html" class="card" style="background-image: url('tourism.jpg');">
+
+    <a href="local-tourism.html" class="card" style="background-image: url('https://raw.githubusercontent.com/valerie-222/html-forms-project/main/tourism.jpg');">
+      <span>🌍</span>
       <h4>Local Tourism Survey</h4>
       <p>Contribute to improving our community's tourism.</p>
     </a>
