@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LakbayTinig - Explore Forms</title>
+  <title>Team 16 - Explore Forms</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -26,7 +26,7 @@
 
     body {
       background-color: var(--background-color);
-      background-image: url(8.png);
+      background-image: url('8.png'); /* Update with your own image */
       font-family: var(--font-header);
       color: var(--text-color);
     }
@@ -56,35 +56,36 @@
     }
 
     .card {
-      background-color: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 8px;
+      position: relative;
+      padding: 2rem;
+      border-radius: 12px;
       text-align: center;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-      transition: var(--transition);
-      cursor: pointer;
+      color: white;
       text-decoration: none;
-      color: inherit;
+      overflow: hidden;
+      height: 250px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* Overlay to make text more readable */
+      z-index: 0;
+    }
+
+    .card h4,
+    .card p {
+      position: relative;
+      z-index: 1;
     }
 
     .card:hover {
-      background-color: var(--card-hover);
       transform: translateY(-5px);
-    }
-
-    .card span {
-      font-size: 3rem;
-      display: block;
-      margin-bottom: 1rem;
-    }
-
-    .card h4 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .card p {
-      font-size: 1rem;
     }
   </style>
 </head>
@@ -95,18 +96,15 @@
   </header>
 
   <section class="cards-container">
-    <a href="disaster-preparedness.html" class="card">
-      <span>⚠️</span>
+    <a href="disaster-preparedness.html" class="card" style="background-image: url('disaster.jpg');">
       <h4>Disaster Preparedness Form</h4>
       <p>Help us understand your readiness for emergencies.</p>
     </a>
-    <a href="School-Classroom-Feedback.html" class="card">
-      <span>📝</span>
+    <a href="School-Classroom-Feedback.html" class="card" style="background-image: url('classroom.jpg');">
       <h4>Classroom Survey Feedback</h4>
       <p>Share your feedback on learning experiences.</p>
     </a>
-    <a href="local-tourism.html" class="card">
-      <span>🌍</span>
+    <a href="local-tourism.html" class="card" style="background-image: url('tourism.jpg');">
       <h4>Local Tourism Survey</h4>
       <p>Contribute to improving our community's tourism.</p>
     </a>
